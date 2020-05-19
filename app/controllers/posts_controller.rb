@@ -26,7 +26,7 @@ class PostsController < ApplicationController
   def create
 	
     @post = Post.new(post_params)
-	@post.user = current_user
+	  @post.user = current_user
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -70,6 +70,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :body, :user_id)
+      params.require(:post).permit(:title, :body)
     end
 end
