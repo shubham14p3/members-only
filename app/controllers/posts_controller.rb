@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   end
   
   def index
+    @Post = Post.all
   end
 
   private

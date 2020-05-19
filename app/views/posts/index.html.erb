@@ -1,0 +1,11 @@
+<h1>Members only Post</h1>
+<%= @posts.each do |post| %>
+   <%= if user_signed_in? %>
+       <%= post.user.name %>	   
+    <%= end %>
+<%= post.title %>
+<%= post.body %>
+<%= end %>
+<% if user_signed_in? %>
+  <%= link_to "Create a Post", new_post_path %>
+<% end %>
