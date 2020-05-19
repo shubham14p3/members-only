@@ -1,0 +1,9 @@
+<%=form_for @post do |f|%>
+  <%=f.label :title, 'Title'%><br>
+  <%=f.text_field :title %> <br> <br>
+  <%=f.label :body, 'Body'%><br>
+  <%=f.text_field :body %> <br> <br>
+  <%= f.submit %>
+
+  <p class="flash"><%= flash.notice %></p>
+<%end%>
