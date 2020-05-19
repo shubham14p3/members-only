@@ -6,8 +6,17 @@ class PostsController < ApplicationController
   end
 
   def create
+  @post = Post.new(post_paras)
+  @post.user_id = current_user.id
+  @post.save
+  redirect_to root_path
   end
   
   def index
+  end
+
+  private
+  def post_paras
+    params.require(:post).permit(:title,:body)
   end
 end
