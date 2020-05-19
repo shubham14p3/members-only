@@ -20,4 +20,10 @@ class PostsController < ApplicationController
   def post_paras
     params.require(:post).permit(:title,:body)
   end
+
+  def signed_in_user
+    unless user_signed_in?
+      redirect_to root_path
+    end
+  end
 end
