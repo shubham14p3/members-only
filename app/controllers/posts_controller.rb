@@ -7,13 +7,17 @@ class PostsController < ApplicationController
 
   def create
   @post = Post.new(post_paras)
-  @post.user_id = current_user.id
+  @post.user = current_user
   @post.save
   redirect_to root_path
   end
   
   def index
-    @Post = Post.all
+    @posts = Post.all
+  end
+
+  def destroy
+    puts 'This is the destroy!!!!!!!!'
   end
 
   private
