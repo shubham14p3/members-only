@@ -1,5 +1,16 @@
 <h1>Pages#home</h1>
 
+<% @posts.each do |post| %>
+  <%if current_user%>
+    <%post.user.name%>
+  <% end %>
+
+  <% post.title%>
+
+  <% post.title%>
+
+<% end %>
+
 <% if current_user %>
   <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
   
@@ -13,3 +24,31 @@
 <% end %>
 
 <% link_to 'Posts', posts_path %>
+
+
+<p id="notice"><%= notice %></p>
+
+<h1>Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.body %></td>
+        <td><%#= link_to 'Show', post %></td>
+        <td><%#= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%#= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
