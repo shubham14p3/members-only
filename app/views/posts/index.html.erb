@@ -1,0 +1,33 @@
+<h1>Pages#home</h1>
+
+<% @posts.each do |post| %>
+  <%if current_user%>
+    <h2>
+      <%= post.user.name%>
+    </h2>
+  <% end %>
+
+  <h3>
+    <%= post.title%>
+  </h3>
+
+  <h5>
+  	<%= post.body%>
+  </h5>
+
+<% end %>
+
+<% if current_user %>
+  <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+  
+  <br>
+
+  <%= link_to 'New Post', new_post_path %>
+ 
+<% else %>
+
+  <%= link_to 'Sign in', new_user_session_path %>
+ 
+  <%= link_to 'Sign up', new_user_registration_path %>
+  
+<% end %>
